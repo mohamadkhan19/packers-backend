@@ -9,7 +9,7 @@ var led_dataRoutes = require('./routes/led_data');
 
 
 var app = express();
-mongoose.connect('mongodb://root:toor@ds157819.mlab.com:57819/restapi_deployement');
+mongoose.connect('');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
