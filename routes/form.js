@@ -49,7 +49,8 @@ router.post('/', function (req, res, next) {
             city: req.body.city,
             state: req.body.state,
             zip: req.body.zip,
-            phone: req.body.phone
+            phone: req.body.phone,
+            user_id: user._id
         });
         form.save(function (err, result) {
             if (err) {

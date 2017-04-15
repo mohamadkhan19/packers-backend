@@ -9,7 +9,8 @@ var schema = new Schema({
     city: {type: String, required: true},
     state: {type: String, required: true},
     zip: {type: Number, required: true},
-    phone: {type: String, required: true}
+    phone: {type: String, required: true},
+    user_id: {type: Schema.Types.ObjectId, ref: 'User_id'}
 });
 
 schema.post('remove', function (form) {
