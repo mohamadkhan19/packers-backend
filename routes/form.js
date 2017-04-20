@@ -37,6 +37,12 @@ router.use('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     var decoded = jwt.decode(req.query.token);
     User.findById(decoded.user._id, function (err, user) {
+
+        if (user.form_id){
+            return res.status(500).json({
+                title: 'Form Already Exist, Please use patch/update form for any changes'
+            });
+        }
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred',
@@ -59,7 +65,7 @@ router.post('/', function (req, res, next) {
                     error: err
                 });
             }
-            user.form_id.push(result);
+            user.form_id;
             user.save();
             res.status(201).json({
                 message: 'Saved form details',
