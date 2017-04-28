@@ -59,7 +59,7 @@ router.post('/signin', function(req, res, next) {
 });
 
 router.delete('/:id', function (req, res, next) {
-    var decoded = jwt.decode(req.query.token);
+    var decoded = jwt.decode(req.headers.token);
     User.findById(req.params.id, function (err, user) {
         if (err) {
             return res.status(500).json({

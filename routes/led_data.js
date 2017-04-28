@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.use('/', function (req, res, next) {
-    jwt.verify(req.query.token, 'secret', function (err, decoded) {
+    jwt.verify(req.headers.token, 'secret', function (err, decoded) {
         if (err) {
             return res.status(401).json({
                 title: 'Not Authenticated',
@@ -30,7 +30,7 @@ router.use('/', function (req, res, next) {
 });
 
 router.patch('/:id', function (req, res, next) {
-    var decoded = jwt.decode(req.query.token);
+    var decoded = jwt.decode(req.headers.token);
     Led_data.findById(req.params.id, function (err, data) {
         if (err) {
             return res.status(500).json({
