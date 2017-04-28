@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Led_data = require('../models/led_data');
+var jwt = require('jsonwebtoken');
 
 
 router.get('/', function (req, res, next) {
@@ -16,6 +17,17 @@ router.get('/', function (req, res, next) {
         });
 });
 
+router.use('/', function (req, res, next) {
+    jwt.verify(req.query.token, 'secret', function (err, decoded) {
+        if (err) {
+            return res.status(401).json({
+                title: 'Not Authenticated',
+                error: err
+            });
+        }
+        next();
+    })
+});
 
 router.patch('/:id', function (req, res, next) {
     var decoded = jwt.decode(req.query.token);
