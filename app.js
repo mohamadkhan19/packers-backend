@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/users', userRoutes);
 app.use('/form', formRoutes);
 app.use('/sensor_data', sensor_dataRoutes);
-app.use('/led_data', led_dataRoutes);
 app.use('/latest_sensor_data', latest_sensor_data);
+app.use('/led_data', led_dataRoutes);
 
 
 module.exports = app;

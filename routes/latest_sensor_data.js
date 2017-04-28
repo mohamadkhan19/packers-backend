@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Sensor_data = require('../models/sensor_data');
+var jwt = require('jsonwebtoken');
 
 router.get('/', function (req, res, next) {
     var decoded = jwt.decode(req.body.token);
@@ -19,3 +20,4 @@ router.get('/', function (req, res, next) {
             });
         });
 });
+module.exports = router;
