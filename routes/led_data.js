@@ -54,6 +54,7 @@ router.patch('/:id', function (req, res, next) {
             }
             res.status(200).json({
                 message: 'Updated led details',
+                success:1,
                 obj: result
             });
         });
