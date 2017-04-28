@@ -4,7 +4,7 @@ var router = express.Router();
 var Sensor_data = require('../models/sensor_data');
 
 router.get('/', function (req, res, next) {
-    Sensor_data.find()
+    Sensor_data.find().limit(100).sort({$natural:-1})
         .exec(function (err, data) {
             if (err) {
                 return res.status(500).json({
