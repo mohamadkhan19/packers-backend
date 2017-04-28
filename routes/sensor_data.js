@@ -23,8 +23,6 @@ router.get('/', function (req, res, next) {
 router.post('/', function (req, res, next) {
     var sensor_data = new Sensor_data({
         temperature : req.body.temperature,
-        humidity : req.body.humidity,
-        activity : req.body.activity,
     	brightness : req.body.brightness,
         motion: req.body.motion,
     	timestamp: req.body.timestamp

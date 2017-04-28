@@ -6,6 +6,7 @@ var userRoutes = require('./routes/user');
 var formRoutes = require('./routes/form');
 var sensor_dataRoutes = require('./routes/sensor_data');
 var led_dataRoutes = require('./routes/led_data');
+var latest_sensor_data = require('./routes/latest_sensor_data');
 
 
 var app = express();
@@ -18,6 +19,7 @@ app.use('/users', userRoutes);
 app.use('/form', formRoutes);
 app.use('/sensor_data', sensor_dataRoutes);
 app.use('/led_data', led_dataRoutes);
+app.use('/latest_sensor_data', latest_sensor_data);
 
 
 module.exports = app;

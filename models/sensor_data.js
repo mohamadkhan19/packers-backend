@@ -3,8 +3,6 @@ var Schema = mongoose.Schema;
 
 var schema = new Schema({
     temperature: {type: Number},
-    humidity: {type: Number},
-    activity: {type: Number},
     brightness:{type: Number},
     motion:{type: Number},
     timestamp: {type: Date}
