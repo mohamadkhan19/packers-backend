@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.use('/', function (req, res, next) {
-    jwt.verify(req.headers.token, 'secret', function (err, decoded) {
+    jwt.verify(req.body.token, 'secret', function (err, decoded) {
         if (err) {
             return res.status(401).json({
                 title: 'Not Authenticated',
@@ -35,7 +35,7 @@ router.use('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-    var decoded = jwt.decode(req.headers.token);
+    var decoded = jwt.decode(req.body.token);
     User.findById(decoded.user._id, function (err, user) {
 
         if (user.form_id){
@@ -76,7 +76,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.patch('/:id', function (req, res, next) {
-    var decoded = jwt.decode(req.query.token);
+    var decoded = jwt.decode(req.body.token);
     Form.findById(req.params.id, function (err, form) {
         if (err) {
             return res.status(500).json({
@@ -118,7 +118,7 @@ router.patch('/:id', function (req, res, next) {
 });
 
 router.delete('/:id', function (req, res, next) {
-    var decoded = jwt.decode(req.query.token);
+    var decoded = jwt.decode(req.body.token);
     Form.findById(req.params.id, function (err, form) {
         if (err) {
             return res.status(500).json({
