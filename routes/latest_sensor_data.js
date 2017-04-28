@@ -4,7 +4,6 @@ var Sensor_data = require('../models/sensor_data');
 var jwt = require('jsonwebtoken');
 
 router.get('/', function (req, res, next) {
-    var decoded = jwt.decode(req.body.token);
     Sensor_data.find().limit(1).sort({$natural:-1})
         .exec(function (err, data) {
             if (err) {
