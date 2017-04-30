@@ -4,7 +4,6 @@ var Notification = require('../models/notification');
 
 
 router.get('/', function (req, res, next) {
-    var decoded = jwt.decode(req.body.token);
     Notification.findOne()
         .exec(function (err, data) {
             if (err) {
