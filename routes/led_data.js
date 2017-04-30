@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.patch('/:id', function (req, res, next) {
+router.put('/:id', function (req, res, next) {
     var decoded = jwt.decode(req.body.token);
     Led_data.findById(req.params.id, function (err, data) {
         if (err) {
